@@ -1,0 +1,26 @@
+﻿@model soft.Models.User
+
+@{
+    
+}
+<div class="row align-content-center align-items-center">
+    <div class="col-md-9">
+        <div class="widget p-4">
+            <form asp-action="Login">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @* <input type="hidden" name="Id" value="@Model.Id" /> *@
+                <div class="mb-2">
+                    <ejs-textbox id="email" placeholder="Login" floatLabelType="Always" ></ejs-textbox>
+                   @*  <span asp-validation-for="UserEmail" class="text-danger"></span> *@
+                </div>
+                <div class="mb-2">
+                    <ejs-textbox id="password" placeholder="Password" floatLabelType="Always" ></ejs-textbox>
+                   @*  <span asp-validation-for="Password" class="text-danger"></span> *@
+                </div>
+
+                <ejs-button id="submit" cssClass="e-success" type="submit" content="Login"></ejs-button>
+            </form>
+        </div>
+    </div>
+    
+</div>

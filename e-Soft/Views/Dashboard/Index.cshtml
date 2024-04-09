@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    // ViewData["isDashboard"] = true;
+}
+@* summary *@
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary income">
+            <div class="d-flex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total income</span>
+                <h1 class="display-6 fw-bold">443</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary expense">
+            <div class="d-flex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total income</span>
+                <h1 class="display-6 fw-bold">323</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="d-flex flex-row widget summary balance">
+            <div class="d-flex flex-column justify-content-center p-5">
+                <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+            </div>
+            <div class="d-flex flex-column m-auto py-3">
+                <span class="lead">Total income</span>
+                <h1 class="display-6 fw-bold">2777</h1>
+            </div>
+        </div>
+    </div>
+</div>
+@* chart *@
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="widget chart">
+            <div class="p-4">
+                <h5 class="fw-bold">Expense by Category</h5>
+            </div>
+            @* <ejs-accumulationchart>
+
+            </ejs-accumulationchart> *@
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="widget chart">
+            <div class="p-4">
+                <h5 class="fw-bold">Expense by Category</h5>
+            </div>
+            @* <ejs-chart>
+                <e-chart-primaryxaxis>
+                    <e-majorgridlines width="0"></e-majorgridlines>
+                    <e-majorgridlines width="0"></e-majorgridlines>
+                    <e-majorgridlines width="0"></e-majorgridlines>
+                </e-chart-primaryxaxis>
+
+            </ejs-chart> *@
+        </div>
+
+    </div>
+</div>
+@* recent transaction and more *@
+<div class="row">
+    <div class="col-md-6">
+        <div class="widget">
+            <div class="p-4">
+                <h5 class="fw-bold">Recent transaction</h5>
+            </div>
+            <div class="px-4 pb-4">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="widget h-100">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <span><i class="fa-solid fa-plus fa-2xl">Widget</i></span>
+            </div>
+        </div>
+    </div>
+
+</div>

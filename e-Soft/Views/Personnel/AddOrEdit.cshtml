@@ -1,0 +1,47 @@
+﻿@model e_soft.Models.PersonnelViewModel
+
+@{
+    // ViewData["Title"] = "Create";
+    ViewData["PageTitle"] = Model.Id==0 ? "Create new Personnel" : "Edit Personnel";
+}
+<div class="row">
+    <div class="col-md-9">
+        <div class="widget p-4">
+            <form asp-action="AddOrEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="Id" value="@Model.Id"   />
+                <div class="mb-2">
+                    <ejs-textbox id="noms" placeholder="Noms" floatLabelType="Always"  value="@Model.Noms" ejs-for="Noms"></ejs-textbox>
+                    <span asp-validation-for="Noms" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <ejs-textbox id="matricule" placeholder="Matricule" floatLabelType="Always" ejs-for="Matricule"></ejs-textbox>
+                    <span asp-validation-for="Matricule" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <ejs-textbox id="grade" placeholder="Grade" floatLabelType="Always" ejs-for="Grade"></ejs-textbox>
+                    <span asp-validation-for="Grade" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    @* <label asp-for="Sexe">Sexe</label> *@
+                    <div class='e-btn-group custom-rbt-group'>
+                        <input type="radio" id="radioleft" name="Sexe" value="M" checked="@(Model.Sexe=="M")" />
+                        <label class="e-btn" for="radioleft">Masculin</label>
+                        <input type="radio" id="radioright" name="Sexe" value="F" checked="@(Model.Sexe=="F")" />
+                        <label class="e-btn" for="radioright">Feminin</label>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <ejs-textbox id="lieuAffectation" placeholder="Lieu d'affectation'" FloatLabelType="Always" ejs-for="LieuAffectation"></ejs-textbox>
+                    <span asp-validation-for="LieuAffectation" class="text-danger"></span>
+                </div>
+                <ejs-button id="submit" cssClass="e-success" type="submit" content="submit"></ejs-button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="widget h-100 d-flex justify-content-center align-items-center">
+            <i class="fa fa-user" fa-2xl aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
