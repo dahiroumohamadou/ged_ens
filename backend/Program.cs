@@ -46,14 +46,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 // All Interfaces for api
-builder.Services.AddScoped<ICategorie, CategorieRepo>();
-builder.Services.AddScoped<IMembre, MembreRepo>();
-builder.Services.AddScoped<IPaiement, PaiementRepo>();
-builder.Services.AddScoped<IPeriodicite, PeriodiciteRepo>();
-builder.Services.AddScoped<IPersonnel, PersonnelRepo>();
-builder.Services.AddScoped<IAssistance, AssistanceRepo>();
-builder.Services.AddScoped<IStructure, StructureRepo>();
-builder.Services.AddScoped<IDon, DonRepo>();
+
+builder.Services.AddScoped<ICycle, CycleRepo>();
+builder.Services.AddScoped<IFiliere, FiliereRepo>();
+builder.Services.AddScoped<IDocument, DocumentRepo>();
 builder.Services.AddScoped<IUser, UserRepo>();
 
 

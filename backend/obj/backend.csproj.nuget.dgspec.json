@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC USER\\source\\repos\\e-Soft\\backend\\backend.csproj": {}
+    "C:\\Users\\PC USER\\source\\repos\\GED\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC USER\\source\\repos\\e-Soft\\backend\\backend.csproj": {
+    "C:\\Users\\PC USER\\source\\repos\\GED\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\PC USER\\source\\repos\\GED\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\backend\\backend.csproj",
+        "projectPath": "C:\\Users\\PC USER\\source\\repos\\GED\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\PC USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\backend\\obj\\",
+        "outputPath": "C:\\Users\\PC USER\\source\\repos\\GED\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.Identity.Owin": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.AspNet.WebApi.Owin": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.24, )"
@@ -75,6 +83,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.24, )"
+            },
+            "Microsoft.Owin.Host.SystemWeb": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.20.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

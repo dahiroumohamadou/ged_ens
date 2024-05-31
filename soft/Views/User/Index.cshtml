@@ -13,8 +13,27 @@
 <p class="text-purple-700 text-opacity-50 ...">The quick brown fox ...</p>
 <p class="text-purple-700 text-opacity-25 ...">The quick brown fox ...</p>
 <p class="text-purple-700 text-opacity-0 ...">The quick brown fox ...</p> *@
+@if (@TempData["AlertMessage"] != null)
+{
+
+    <script src="/lib/jquery//dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+        @*  swal("Infos : ", '@TempData["AlertMessage"]', "success");*@
+                swal("Infos : ", '@TempData["AlertMessage"]', "info");
+        @*  swal("Infos : ", '@TempData["AlertMessage"]', "warning"); *@
+                };
+    </script>
+    @* <div class="alert alert-success">
+        @TempData["AlertMessage"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div> *@
+}
 <div class="row ">
-    <div class="col-md-9 h-100 d-flex align-content-center justify-content-center">
+    <div class="col-md-11 h-100 d-flex align-content-center justify-content-center">
         <ejs-grid id="Grid"
                   dataSource="@ViewBag.DataSource"
                   gridLines="None"
@@ -23,6 +42,7 @@
                   gridlines="None">
             <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
             <e-grid-columns>
+                <e-grid-column field="rowIndex" headerText="N°" template="#rowIndexTemplate" textAlign="Center"></e-grid-column>
                 <e-grid-column field="UserName" headerText="User" textAlign="Center"></e-grid-column>
                 <e-grid-column field="UserEmail" headerText="Email" textAlign="Center"></e-grid-column>
                 <e-grid-column field="Role" headerText="Role" textAlign="Center"></e-grid-column>
@@ -36,9 +56,11 @@
         </div>
     </div>
 </div>
-
+<script id="rowIndexTemplate" type="text/x-template">
+    <div>${((+ data.index)+1)}</div>
+</script>
 <script id="actionColumTemplate" type="text/x-template">
-    <div class="d-flex flex-row g-5 justify-content-start">
+    <div class="d-flex flex-row g-5 justify-content-center">
         <a class="btn btn-sm no-a-decoration btn-primary" href="/User/AddOrEdit/${Id}" >
             <i class="fa-solid fa-pen fa-lg "></i>
          </a>|

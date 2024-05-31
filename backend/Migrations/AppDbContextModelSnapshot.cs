@@ -19,112 +19,6 @@ namespace backend.Migrations
                 .HasAnnotation("ProductVersion", "6.0.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("backend.Model.Assistance", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("MembreId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Montant")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Objet")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Proposition")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("Statut")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MembreId");
-
-                    b.ToTable("Assistances");
-                });
-
-            modelBuilder.Entity("backend.Model.Don", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("MembreId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Montant")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MembreId");
-
-                    b.ToTable("Dons");
-                });
-
-            modelBuilder.Entity("backend.Model.Personnel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Grade")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LieuAffectation")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Matricule")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Noms")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Sexe")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Personnels");
-                });
-
-            modelBuilder.Entity("backend.Model.Structure", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Libele")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Structures");
-                });
-
             modelBuilder.Entity("backend.Model.User", b =>
                 {
                     b.Property<int>("Id")
@@ -157,197 +51,135 @@ namespace backend.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("backend.Models.Categorie", b =>
+            modelBuilder.Entity("backend.Models.Cycle", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("MontantAdhesion")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MontantCotisation")
-                        .HasColumnType("int");
-
-                    b.Property<string>("libele")
+                    b.Property<string>("Code")
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("backend.Models.Membre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategorieId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateAdhesion")
+                    b.Property<DateTime?>("Created")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Fonction")
+                    b.Property<string>("Libele")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Matricule")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("MontantAdhesion")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Noms")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Prenoms")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("StrcutureAffectation")
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("StructureId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategorieId");
-
-                    b.HasIndex("StructureId");
-
-                    b.ToTable("Membres");
-                });
-
-            modelBuilder.Entity("backend.Models.Paiement", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("MembreId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Montant")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PeriodiciteId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("datePaiement")
+                    b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MembreId");
-
-                    b.HasIndex("PeriodiciteId");
-
-                    b.ToTable("Paiements");
+                    b.ToTable("Cycles");
                 });
 
-            modelBuilder.Entity("backend.Models.Periodicite", b =>
+            modelBuilder.Entity("backend.Models.Doc", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("annee")
+                    b.Property<string>("AnneeAcademique")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("mois")
+                    b.Property<int?>("AnneeSortie")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("CycleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DateSign")
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("Fichier")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FiliereId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Numero")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Objet")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Promotion")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Session")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Source")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("TypeDoc")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Periodicites");
+                    b.HasIndex("CycleId");
+
+                    b.HasIndex("FiliereId");
+
+                    b.ToTable("Documents");
                 });
 
-            modelBuilder.Entity("backend.Model.Assistance", b =>
+            modelBuilder.Entity("backend.Models.Filiere", b =>
                 {
-                    b.HasOne("backend.Models.Membre", "Membre")
-                        .WithMany("Assistances")
-                        .HasForeignKey("MembreId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Navigation("Membre");
+                    b.Property<string>("Code")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("Created")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Libele")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Filieres");
                 });
 
-            modelBuilder.Entity("backend.Model.Don", b =>
+            modelBuilder.Entity("backend.Models.Doc", b =>
                 {
-                    b.HasOne("backend.Models.Membre", "membre")
-                        .WithMany("Dons")
-                        .HasForeignKey("MembreId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                    b.HasOne("backend.Models.Cycle", "Cycle")
+                        .WithMany("Documents")
+                        .HasForeignKey("CycleId")
+                        .OnDelete(DeleteBehavior.NoAction);
 
-                    b.Navigation("membre");
+                    b.HasOne("backend.Models.Filiere", "Filiere")
+                        .WithMany("Documents")
+                        .HasForeignKey("FiliereId")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("Cycle");
+
+                    b.Navigation("Filiere");
                 });
 
-            modelBuilder.Entity("backend.Models.Membre", b =>
+            modelBuilder.Entity("backend.Models.Cycle", b =>
                 {
-                    b.HasOne("backend.Models.Categorie", "Categorie")
-                        .WithMany("Membres")
-                        .HasForeignKey("CategorieId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("backend.Model.Structure", "Structure")
-                        .WithMany("Membres")
-                        .HasForeignKey("StructureId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Categorie");
-
-                    b.Navigation("Structure");
+                    b.Navigation("Documents");
                 });
 
-            modelBuilder.Entity("backend.Models.Paiement", b =>
+            modelBuilder.Entity("backend.Models.Filiere", b =>
                 {
-                    b.HasOne("backend.Models.Membre", "Membre")
-                        .WithMany("Paiements")
-                        .HasForeignKey("MembreId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("backend.Models.Periodicite", "Periodicite")
-                        .WithMany("Paiements")
-                        .HasForeignKey("PeriodiciteId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Membre");
-
-                    b.Navigation("Periodicite");
-                });
-
-            modelBuilder.Entity("backend.Model.Structure", b =>
-                {
-                    b.Navigation("Membres");
-                });
-
-            modelBuilder.Entity("backend.Models.Categorie", b =>
-                {
-                    b.Navigation("Membres");
-                });
-
-            modelBuilder.Entity("backend.Models.Membre", b =>
-                {
-                    b.Navigation("Assistances");
-
-                    b.Navigation("Dons");
-
-                    b.Navigation("Paiements");
-                });
-
-            modelBuilder.Entity("backend.Models.Periodicite", b =>
-                {
-                    b.Navigation("Paiements");
+                    b.Navigation("Documents");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 
 namespace soft.Controllers
 {
+    //[Authorize]
     [AllowAnonymous]
     public class UserController : Controller
     {
@@ -80,7 +81,9 @@ namespace soft.Controllers
                     HttpResponseMessage res = _httpClient.PostAsync(_httpClient.BaseAddress + "/User/Add", content).Result;
                     if (res.IsSuccessStatusCode)
                     {
+                        TempData["AlertMessage"] = "User added successfully.....";
                         return RedirectToAction("Index");
+                       
                     }
                 }
                 else
@@ -88,6 +91,7 @@ namespace soft.Controllers
                     HttpResponseMessage res = _httpClient.PutAsync(_httpClient.BaseAddress + "/User", content).Result;
                     if (res.IsSuccessStatusCode)
                     {
+                        TempData["AlertMessage"] = "User updated successfully.....";
                         return RedirectToAction("Index");
                     }
 
@@ -108,6 +112,7 @@ namespace soft.Controllers
                 HttpResponseMessage response = _httpClient.DeleteAsync(_httpClient.BaseAddress + "/User/" + id).Result;
                 if (response.IsSuccessStatusCode)
                 {
+                    TempData["AlertMessage"] = "User deleted successfully.....";
                     return RedirectToAction("Index");
 
                 }
@@ -139,15 +144,20 @@ namespace soft.Controllers
                         if(verifpass)
                         {
                             SignInUser(u);
+                            ViewBag.user=u.UserName; 
                             return RedirectToAction("Index", "Dashboard");
                         }
                         else
                         {
+                        ViewBag.user = "";
+                        TempData["AlertMessage"] = "Login or password incorrect.....";
                             BadRequest();
                         }
                     }
                     else
                     {
+                        ViewBag.user = "";
+                        TempData["AlertMessage"] = "email does not exist.....";
                         BadRequest();
                     }
                

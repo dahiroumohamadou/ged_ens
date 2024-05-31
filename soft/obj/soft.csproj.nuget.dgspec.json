@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC USER\\source\\repos\\e-Soft\\soft\\soft.csproj": {}
+    "C:\\Users\\PC USER\\source\\repos\\GED\\soft\\soft.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC USER\\source\\repos\\e-Soft\\soft\\soft.csproj": {
+    "C:\\Users\\PC USER\\source\\repos\\GED\\soft\\soft.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\soft\\soft.csproj",
+        "projectUniqueName": "C:\\Users\\PC USER\\source\\repos\\GED\\soft\\soft.csproj",
         "projectName": "soft",
-        "projectPath": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\soft\\soft.csproj",
+        "projectPath": "C:\\Users\\PC USER\\source\\repos\\GED\\soft\\soft.csproj",
         "packagesPath": "C:\\Users\\PC USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC USER\\source\\repos\\e-Soft\\soft\\obj\\",
+        "outputPath": "C:\\Users\\PC USER\\source\\repos\\GED\\soft\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
